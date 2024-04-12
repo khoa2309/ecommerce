@@ -55,7 +55,8 @@
     }
 
     .header {
-        @apply gradient_color dark:dark_color lg:header_height h-[6.8rem] fixed top-0 left-0 bottom-0 right-0 z-10
+        @apply gradient_color dark:dark_color lg:header_height h-[6.8rem] fixed top-0 left-0 bottom-0 right-0;
+        z-index: 999;
     }
 
     .wrap {
@@ -314,7 +315,7 @@
         box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
         display: none;
         cursor: default;
-        z-index: 10;
+        z-index: 999;
     }
 
     .cart_list_pc::after {
@@ -444,7 +445,7 @@
         @apply lg:top-[125px] top-[73px];
         position: fixed;
         right: 15px;
-        z-index: 998;
+        z-index: 500;
     }
 
     .add-notice {
