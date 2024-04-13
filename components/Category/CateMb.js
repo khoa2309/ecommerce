@@ -1,5 +1,3 @@
-"use client";
-
 export default function CateMb({ cateItems, onClick }) {
     return (
         <nav className="lg:hidden">
