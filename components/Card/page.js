@@ -5,7 +5,7 @@ import ImageComponent from "./ImageThumb";
 import ProductInfo from "./ProductInfo";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-export default function Card({ product, index }) {
+export default function Card({ product }) {
     const { link, ...others } = product;
     const dispatch = useDispatch();
     const handleClick = () => {

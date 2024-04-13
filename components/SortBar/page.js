@@ -4,14 +4,15 @@ import { useState } from "react";
 import SortButton from "./SortButton";
 import SortDropdown from "./SortDropDown";
 import { sort } from "@/features/productsSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SortBar() {
     const dispatch = useDispatch();
-    const sortOptionArr = [
+    const sortSelect = useSelector((state) => state.products.presentSort);
+    const sortOption = [
         {
             text: "Đã thích",
-            active: true,
+            active: false,
         },
         {
             text: "Bán chạy",
@@ -26,19 +27,10 @@ export default function SortBar() {
             active: false,
         },
     ];
-
-    const [sortOption, setSortOption] = useState(sortOptionArr);
+    sortOption[sortSelect].active = true;
 
     const handleClick = (e) => {
-        const updatedSortOptions = sortOptionArr.map((item) => {
-            if (item.text === e.target.innerText) {
-                return { ...item, active: true };
-            } else {
-                return { ...item, active: false };
-            }
-        });
         dispatch(sort(e.target.innerText));
-        setSortOption(updatedSortOptions);
     };
     return (
         <>
@@ -58,7 +50,9 @@ export default function SortBar() {
                     <li className="flex-1 sort-item" key={index}>
                         <a
                             className={`sort_mb_link cursor-pointer ${
-                                item.active ? "text-primary" : "text-gray"
+                                index === sortSelect
+                                    ? "text-primary"
+                                    : "text-gray"
                             }`}
                             onClick={handleClick}
                         >

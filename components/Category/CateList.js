@@ -1,4 +1,4 @@
-export default function CateList({ cateItems, onClick }) {
+export default function CateList({ cateItems, onClick, cate }) {
     return (
         <ul className="p-0 list-none font-[500]">
             {cateItems.map((item, index) => (
@@ -6,7 +6,7 @@ export default function CateList({ cateItems, onClick }) {
                     <a
                         className={`relative no-underline block text-[1.5rem] py-[1rem] px-[2rem] cursor-pointer
                            ${
-                               item.active
+                               index === cate
                                    ? "text-primary dark:text-primary"
                                    : "text-black dark:text-main_white"
                            }
