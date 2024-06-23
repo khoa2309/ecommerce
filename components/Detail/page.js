@@ -18,8 +18,8 @@ import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { addToCart } from "@/features/productsSlice";
 import { useDispatch } from "react-redux";
-import dynamic from "next/dynamic";
-const ImageDetail = dynamic(() => import("./ImageDetail"));
+import ImageDetail from "./ImageDetail";
+
 export default function Detail() {
     const product = useSelector((state) => state.products.currentProduct);
     const dispatch = useDispatch();
